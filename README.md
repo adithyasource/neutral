@@ -1,4 +1,4 @@
-## neutral
+# neutral
 
 the first web app i've built fully using a js framework. was definitely challenging having a bunch of information coming at me all at once but i definitely had fun. built this using svelte and used firebase for auth and storing data. the desktop version was made using tauri.
 
