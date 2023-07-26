@@ -2,14 +2,15 @@
 
 the first web app i've built fully using a js framework. was definitely challenging having a bunch of information coming at me all at once but i definitely had fun. built this using svelte and used firebase for auth and storing data. the desktop version was made using tauri.
 
-for now i'm putting a soft pause on working on this but i'll most probably come back to make a few changes to the user interface to make it a tad bit better, or maybe not, who knows.
+
+<table>
+<tbody>
+<tr>
+<td><a href="https://neutral.adithya.zip/" target="_blank">web version</a></td>
+<td><a href="https://github.com/adithyasource/neutral/releases/tag/1.0.0" target="_blank"> download </a></td>
+</tr>
+</tbody>
+</table>
+
 
 see ya!
-
---
-
-check it out live at [neutral.adithya.zip](https://neutral.adithya.zip/)
-
-download it for windows in the releases section
-
-design process at [coming soon]
