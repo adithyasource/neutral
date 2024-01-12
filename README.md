@@ -19,4 +19,23 @@ the first web app i've built fully using a js framework. was definitely challeng
 </table>
 
 
-see ya!
+## Acknowledgments
+
+<table>
+<tbody>
+<tr>
+<td><b>Libraries</b></td>
+<td><a href="https://svelte.dev/" target="_blank">Svelte</a></td>
+<td><a href="https://tauri.app" target="_blank">Tauri</a></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<tbody>
+<tr>
+<td><b>Database and Auth</b></td>
+<td><a href="https://firebase.google.com/" target="_blank">Firebase</a></td>
+</tr>
+</tbody>
+</table>
