@@ -192,7 +192,7 @@
       });
   }
 
-  auth.onAuthStateChanged((user) => {
+  auth.onAuthStateChanged(async (user) => {
     if (user) {
       var userLoggedIn = true;
       whenSignedOutDisplay = "none";
@@ -200,13 +200,15 @@
       displayName = user.displayName;
       userId = user.uid;
       const dbRef = ref(db, "users/" + userId);
-      get(child(dbRef, "cloudTodos")).then((snapshot) => {
+      await get(child(dbRef, "cloudTodos")).then((snapshot) => {
         var cloudTodosRetrieve = [];
         snapshot.forEach((childSnapshot) => {
           cloudTodosRetrieve.push(childSnapshot.val());
         });
         todos = cloudTodosRetrieve;
       });
+
+      console.log(todos);
     } else {
       var userLoggedIn = false;
       whenSignedOutDisplay = "flex";
@@ -591,6 +593,27 @@
           </label>
           <textarea
             class="todos"
+            on:keyup={(e) => {
+              if (e.key == "ArrowDown" && e.altKey && e.ctrlKey) {
+                if (index != todos.length) {
+                  var element = todos[index];
+                  todos.splice(index, 1);
+                  todos.splice(index + 1, 0, element);
+                }
+              }
+
+              if (e.key == "ArrowUp" && e.altKey && e.ctrlKey) {
+                if (index != 0) {
+                  var element = todos[index];
+                  todos.splice(index, 1);
+                  todos.splice(index - 1, 0, element);
+                }
+              }
+
+              todos = todos;
+
+              writeUserData();
+            }}
             bind:value={todo}
             on:input={(event) => {
               updateTodoHeight(event, index);
@@ -645,6 +668,27 @@
           placeholder="_"
           on:input={(event) => {
             updateSubTextHeight(event, index);
+          }}
+          on:keyup={(e) => {
+            if (e.key == "ArrowDown" && e.altKey && e.ctrlKey) {
+              if (index != todos.length) {
+                var element = todos[index];
+                todos.splice(index, 1);
+                todos.splice(index + 1, 0, element);
+              }
+            }
+
+            if (e.key == "ArrowUp" && e.altKey && e.ctrlKey) {
+              if (index != 0) {
+                var element = todos[index];
+                todos.splice(index, 1);
+                todos.splice(index - 1, 0, element);
+              }
+            }
+
+            todos = todos;
+
+            writeUserData();
           }}
           style="display: {showSubText}; height: {subTextHeight}; min-height: 23px;"
           on:input={writeUserData}
@@ -713,7 +757,8 @@
             ctrl + space to create new task <br />
             hit enter on task to add sub text <br />
             tab to move around <br />
-            shift + enter to add new line <br /> <br />
+            shift + enter to add new line <br />
+            ctrl + alt + up / down to reorder <br /> <br />
             <i> remember these:</i> <br />
             ctrl + c to mark done<br />
             ctrl + d to delete<br />
