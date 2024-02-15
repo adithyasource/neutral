@@ -440,7 +440,7 @@
                   class="defaultButton"
                   on:click|preventDefault={() =>
                     window.open(
-                      "https://github.com/adithyasource/neutral/releases/download/1.0.0/neutral.1.0.0.msi",
+                      "https://github.com/adithyasource/neutral/releases/download/1.0.1/neutral.1.0.1.msi",
                       "_blank"
                     )}
                   style="display: {showDownloads};margin-top:15px; padding-left:10px; padding-right:10px"
@@ -451,7 +451,7 @@
                   class="defaultButton"
                   on:click|preventDefault={() =>
                     window.open(
-                      "https://github.com/adithyasource/neutral/releases/download/1.0.0/neutral.1.0.0.exe",
+                      "https://github.com/adithyasource/neutral/releases/download/1.0.1/neutral.1.0.1.exe",
                       "_blank"
                     )}
                   style="display: {showDownloads}; margin-top:15px; padding-left:8px; padding-right:8px"

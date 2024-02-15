@@ -427,6 +427,27 @@
             on:input={(event) => {
               updateTodoHeight(event, index);
             }}
+            on:keyup={(e) => {
+              if (e.key == "ArrowDown" && e.altKey && e.ctrlKey) {
+                if (index != todos.length) {
+                  var element = todos[index];
+                  todos.splice(index, 1);
+                  todos.splice(index + 1, 0, element);
+                }
+              }
+
+              if (e.key == "ArrowUp" && e.altKey && e.ctrlKey) {
+                if (index != 0) {
+                  var element = todos[index];
+                  todos.splice(index, 1);
+                  todos.splice(index - 1, 0, element);
+                }
+              }
+
+              todos = todos;
+
+              writeUserData();
+            }}
             type="text"
             class:completedTodo={completed}
             style="height: {todoHeight}"
@@ -477,6 +498,27 @@
           placeholder="_"
           on:input={(event) => {
             updateSubTextHeight(event, index);
+          }}
+          on:keyup={(e) => {
+            if (e.key == "ArrowDown" && e.altKey && e.ctrlKey) {
+              if (index != todos.length) {
+                var element = todos[index];
+                todos.splice(index, 1);
+                todos.splice(index + 1, 0, element);
+              }
+            }
+
+            if (e.key == "ArrowUp" && e.altKey && e.ctrlKey) {
+              if (index != 0) {
+                var element = todos[index];
+                todos.splice(index, 1);
+                todos.splice(index - 1, 0, element);
+              }
+            }
+
+            todos = todos;
+
+            writeUserData();
           }}
           style="display: {showSubText}; height: {subTextHeight}; min-height: 23px;"
           on:input={writeUserData}
@@ -545,7 +587,8 @@
             ctrl + space to create new task <br />
             hit enter on task to add sub text <br />
             tab to move around <br />
-            shift + enter to add new line <br /> <br />
+            shift + enter to add new line <br />
+            ctrl + alt + up / down to reorder <br /> <br />
             <i> remember these:</i> <br />
             ctrl + c to mark done<br />
             ctrl + d to delete<br />

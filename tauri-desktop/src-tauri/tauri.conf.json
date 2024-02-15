@@ -3,12 +3,12 @@
   "build": {
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build",
-    "devPath": "",
+    "devPath": "../public",
     "distDir": "../public"
   },
   "package": {
     "productName": "neutral",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "tauri": {
     "allowlist": {
